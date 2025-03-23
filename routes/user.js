@@ -24,7 +24,6 @@ router.post('/signin', async (req, res) => {
         return res.render('signin', { error: "Incorrect Email Or Password" });
     }
 
-
 })
 
 router.post('/signup', async (req, res) => {
@@ -32,13 +31,14 @@ router.post('/signup', async (req, res) => {
     await User.create({
         fullName, email, password
     });
+
     return res.redirect("/");
 })
 
 module.exports = router;
 
 
-router.get('/logout' , (req, res)=>{
+router.get('/logout', (req, res) => {
     res.clearCookie('token');
     return res.redirect('/');
 })

@@ -6,9 +6,9 @@ const commentSchema = new Schema({
         type: String,
         required: true,
     },
-    blodId: {
+    blogId: {
         type: Schema.Types.ObjectId,
-        ref: "user",
+        ref: "blog",
     },
     createdBy: {
         type: Schema.Types.ObjectId,

@@ -28,13 +28,13 @@
 
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle "
             href="#"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-              <%= locals.user.fullName %>
+              <%= user.fullName %>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
@@ -63,3 +63,4 @@
   <div class="alert alert-danger" role="alert"><%= locals.error %></div>
 </div>
 <% } %>
+

@@ -4,6 +4,7 @@ const secret = "Dorarara";
 
 function createTokenForUser(user){
     const payload={
+        fullName : user.fullName , 
         _id:user._id,
         email:user.email,
         profileImageUrl:user.profileImageUrl,

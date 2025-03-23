@@ -21,17 +21,20 @@ app.set('views', path.resolve("./views"))
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
-app.use(express.static(path.resolve('./public')));
+
+app.use(express.static(path.resolve('./public'))); // Serve the static files under `/public`
+app.use('/uploads', express.static(path.resolve('./public/uploads'))); // Serve the `/uploads` folder
+
 
 app.get('/', async (req, res) => {
-
-    const allBlogs = await Blog.find({});
-
+    const allBlogs = await Blog.find({}).populate('createdBy');
     res.render('home', {
         user: req.user,
         blogs: allBlogs,
     });
+    
 })
+
 
 app.use('/user', userRouter);
 app.use('/blog', blogRouter); //Blog Route Initialase kr diya 

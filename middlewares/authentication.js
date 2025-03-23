@@ -1,4 +1,5 @@
 const { validateToken } = require("../services/authentication");
+const User = require('../models/user');
 
 function checkForAuthenticationCookie(cookieName) {
     return (req, res, next) => {
